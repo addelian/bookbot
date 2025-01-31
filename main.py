@@ -1,10 +1,9 @@
-def main():
-    book_path = "./books/frankenstein.txt"
+def main(book_path):
     file_contents = get_book_text(book_path)
     word_count = count_words(file_contents)
     char_count = count_characters(file_contents)
     reference = generate_report_reference(char_count)
-    print_report(reference, word_count)
+    print_report(reference, word_count, book_path)
 
 
 def count_words(text):
@@ -40,8 +39,9 @@ def sort_on(dict):
     return dict["num"]
 
 
-def print_report(chars, count):
-    print("--- Begin report of books/frankenstein.txt ---")
+def print_report(chars, count, path):
+    name = path[8:-4].title()
+    print(f"--- Begin report of {name} ---")
     print(f"{count} words found in the document")
     print("")
     for c in chars:
@@ -49,4 +49,4 @@ def print_report(chars, count):
     print("--- End report ---")
 
 
-main()
+main("./books/frankenstein.txt")
