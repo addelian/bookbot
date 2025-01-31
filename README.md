@@ -1,3 +1,3 @@
 # bookbot
 
-BookBot is my first project!
+BookBot isn't my first project, but I'm excited to dig further into Python.
