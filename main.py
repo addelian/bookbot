@@ -17,13 +17,13 @@ def get_book_text(path):
 
 def count_characters(text):
     lowered = text.lower()
-    counter = {}
+    chars = {}
     for c in lowered:
-        if c in counter:
-            counter[c] += 1
+        if c in chars:
+            chars[c] += 1
         else:
-            counter[c] = 1
-    return counter
+            chars[c] = 1
+    return chars
 
 
 main()
