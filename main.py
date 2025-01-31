@@ -3,7 +3,8 @@ def main():
     file_contents = get_book_text(book_path)
     word_count = count_words(file_contents)
     char_count = count_characters(file_contents)
-    print(char_count)
+    reference = generate_report_reference(char_count)
+    print_report(reference, word_count)
 
 
 def count_words(text):
@@ -24,6 +25,28 @@ def count_characters(text):
         else:
             chars[c] = 1
     return chars
+
+
+def generate_report_reference(char_dict):
+    char_ref = []
+    for d in char_dict:
+        if d.isalpha():
+            char_ref.append({"char": d, "num": char_dict[d]})
+    char_ref.sort(reverse=True, key=sort_on)
+    return char_ref
+
+
+def sort_on(dict):
+    return dict["num"]
+
+
+def print_report(chars, count):
+    print("--- Begin report of books/frankenstein.txt ---")
+    print(f"{count} words found in the document")
+    print("")
+    for c in chars:
+        print(f"The '{c["char"]}' character was found {c["num"]} times")
+    print("--- End report ---")
 
 
 main()
